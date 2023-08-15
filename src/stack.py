@@ -24,8 +24,11 @@ class Stack:
 
         :param data: данные, которые будут добавлены на вершину стека
         """
-        store_data = self.top
-        self.top = Node(data, store_data)
+        # store_data = self.top
+        # self.top = Node(data, store_data)
+        node = Node(data, self.top)
+        self.top = node
+
 
     def pop(self):
         """
