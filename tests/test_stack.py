@@ -12,7 +12,7 @@ class TestNodeStack(unittest.TestCase):
         self.assertEqual(n2.data, 'a')
         self.assertEqual(n1, n2.next_node)
 
-    def test_slack(self):
+    def test_stack_push(self):
         stack = Stack()
         stack.push('data1')
         stack.push('data2')
