@@ -9,7 +9,7 @@ if __name__ == '__main__':
     print(n1)  # <__main__.Node object at 0x0000022803036050>
     print(n2.next_node)  # <__main__.Node object at 0x0000022803036050>
 
-    print('\n\tРаботаем с экземплярами класса Stack')
+    print('\n\tРаботаем с экземпляром класса Stack')
     stack = Stack()
     stack.push('data1')
     stack.push('data2')
