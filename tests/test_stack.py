@@ -18,6 +18,7 @@ class TestNodeStack(unittest.TestCase):
         stack.push('data2')
         stack.push('data3')
 
+        self.assertTrue(isinstance(stack.top, Node))
         self.assertEqual(stack.top.data, 'data3')
         self.assertEqual(stack.top.next_node.data, 'data2')
         self.assertEqual(stack.top.next_node.next_node.data, 'data1')
