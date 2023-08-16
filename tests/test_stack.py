@@ -52,3 +52,10 @@ class TestNodeStack(unittest.TestCase):
         data = stack.pop()
         self.assertEqual(data, 'data_02')
         self.assertEqual(stack.top.data, 'data_01')
+
+        # Извлекаем первый элемент из стека
+        data = stack.pop()
+        self.assertEqual(data, 'data_01')
+
+        # Проверяем что стек теперь пустой
+        self.assertIs(stack.top, None)
