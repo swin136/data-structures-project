@@ -7,8 +7,16 @@ class Node:
 
         :param data: данные, которые будут храниться в узле
         """
-        self.data = data
-        self.next_node = next_node
+        self.__data = data
+        self.__next_node = next_node
+
+    @property
+    def data(self):
+        return self.__data
+
+    @property
+    def next_node(self):
+        return self.__next_node
 
 
 class Stack:
