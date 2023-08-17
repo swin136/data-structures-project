@@ -44,6 +44,7 @@ class Queue:
             self.__head = node
             self.__tail = node
         else:
+            # Очередь не пустая!
             self.__tail.next_node = node
             self.__tail = node
 
@@ -65,4 +66,15 @@ class Queue:
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
-        pass
+        if self.__head is None:
+            # Очередь пустая
+            return ""
+        else:
+            # Очередь не пустая
+            node = self.__head
+            str_data = ""
+            # Последовательно проходим по очереди
+            while node is not None:
+                str_data += node.data + "\n"
+                node = node.next_node
+        return str_data.strip()
