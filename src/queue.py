@@ -7,7 +7,20 @@ class Node:
 
         :param data: данные, которые будут храниться в узле
         """
-        pass
+        self.__data = data
+        self.__next_node = next_node
+
+    @property
+    def data(self):
+        return self.__data
+
+    @property
+    def next_node(self):
+        return self.__next_node
+
+    @next_node.setter
+    def next_node(self, address):
+        self.__next_node = address
 
 
 class Queue:
@@ -15,7 +28,9 @@ class Queue:
 
     def __init__(self):
         """Конструктор класса Queue"""
-        pass
+        # Аттрибуты головы и хвоста очереди
+        self.__head = None
+        self.__tail = None
 
     def enqueue(self, data):
         """
@@ -23,7 +38,22 @@ class Queue:
 
         :param data: данные, которые будут добавлены в очередь
         """
-        pass
+        node = Node(data, None)
+        if self.__head is None:
+            # Очередь пустая
+            self.__head = node
+            self.__tail = node
+        else:
+            self.__tail.next_node = node
+            self.__tail = node
+
+    @property
+    def head(self):
+        return self.__head
+
+    @property
+    def tail(self):
+        return self.__tail
 
     def dequeue(self):
         """
