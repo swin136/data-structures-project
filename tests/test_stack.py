@@ -59,3 +59,27 @@ class TestNodeStack(unittest.TestCase):
 
         # Проверяем что стек теперь пустой
         self.assertIs(stack.top, None)
+
+    def test_str_method(self):
+        """Проверяем магический метод __str__ класса Stack"""
+        # Инициализируем объект stack - экземпляр класса Stack
+        stack = Stack()
+        # Проверяем метод __str__ на пустом стеке
+        self.assertEqual(str(stack), "")
+        # Заполняем стек
+        stack.push('data_01')
+        stack.push('data_02')
+        stack.push('data_03')
+        stack.push('data_04')
+        # Проверяем метод __str__ на заполненном стеке
+        self.assertEqual(str(stack), 'data_04\ndata_03\ndata_02\ndata_01')
+        # Извлекаем 2 элемента из стека
+        stack.pop()
+        stack.pop()
+        # Проверяем метод __str__ на уменьшенном стеке
+        self.assertEqual(str(stack), 'data_02\ndata_01')
+        # Извлекаем последние 2 элемента из стека
+        stack.pop()
+        stack.pop()
+        # Проверяем метод __str__ на пустом стеке
+        self.assertEqual(str(stack), "")

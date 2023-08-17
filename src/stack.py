@@ -49,6 +49,20 @@ class Stack:
             self.__top = next_data
             return data
 
+    def __str__(self):
+        """Магический метод для строкового представления объекта"""
+        if self.__top is None:
+            # стек пустой
+            return ""
+        else:
+            # стек не пустой
+            node = self.__top
+            str_data = ""
+            while node is not None:
+                str_data += node.data + "\n"
+                node = node.next_node
+        return str_data.strip()
+
     @property
     def top(self):
         return self.__top
