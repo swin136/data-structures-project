@@ -1,4 +1,5 @@
 """Здесь надо написать тесты с использованием unittest для модуля queue."""
+import copy
 import unittest
 from src.queue import Node
 from src.queue import Queue
@@ -43,8 +44,8 @@ class TestNodeQueue(unittest.TestCase):
 
     def test_storage_data(self):
         """Проверяем очередность хранения данных"""
-        queue = get_sample_queue()
-        # Первый элемент очереди
+        queue = copy.deepcopy(get_sample_queue())
+        # queue = get_sample_queue()
         self.assertEqual(queue.head.data, 'test data #1')
         # Последний элемент очереди
         self.assertEqual(queue.tail.data, 'test data #3')
@@ -57,3 +58,20 @@ class TestNodeQueue(unittest.TestCase):
         # Проверяем, что последний элемент очереди, действительно является последним
         with self.assertRaises(AttributeError):
             print(queue.tail.next_node.data)
+
+
+    def test_dequeue(self):
+        """Проверяем работу метода dequeue класса Queue"""
+        queue = copy.deepcopy(get_sample_queue())
+        self.assertEqual(queue.dequeue(), "test data #1")
+        self.assertEqual(queue.dequeue(), "test data #2")
+        self.assertEqual(queue.dequeue(), "test data #3")
+        self.assertIs(queue.dequeue(), None)
+
+        # Еще раз заполняем нашу очередь
+        queue.enqueue('1-й элемент')
+        queue.enqueue('2-й элемент')
+        # Новая итерация тестирования метода dequeue
+        self.assertEqual(queue.dequeue(), "1-й элемент")
+        self.assertEqual(queue.dequeue(), "2-й элемент")
+        self.assertIs(queue.dequeue(), None)
