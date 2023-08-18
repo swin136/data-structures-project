@@ -62,7 +62,21 @@ class Queue:
 
         :return: данные удаленного элемента
         """
-        pass
+        if self.__head is None:
+            # Очередь пустая -> возвращаем None
+            return None
+        else:
+            # Очередь не пустая - берем данные из начала очереди
+            data = self.__head.data
+            if self.__head == self.__tail:
+                # Мы извлекли данные из последнего элемента очереди - присваиваем указателям начала и конца очереди
+                # значение None
+                self.__tail = None
+                self.__head = None
+            else:
+                # Указатель начала очереди указывает на элемент после извлеченного
+                self.__head = self.__head.next_node
+            return data
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
