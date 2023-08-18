@@ -20,6 +20,8 @@ class Node:
 
     @next_node.setter
     def next_node(self, address):
+        if not isinstance(address, self.__class__):
+            raise TypeError
         self.__next_node = address
 
 
@@ -64,7 +66,7 @@ class Queue:
         """
         if self.__head is None:
             # Очередь пустая -> возвращаем None
-            return None
+            return
         else:
             # Очередь не пустая - берем данные из начала очереди
             data = self.__head.data
