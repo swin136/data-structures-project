@@ -59,7 +59,6 @@ class TestNodeQueue(unittest.TestCase):
         with self.assertRaises(AttributeError):
             print(queue.tail.next_node.data)
 
-
     def test_dequeue(self):
         """Проверяем работу метода dequeue класса Queue"""
         queue = copy.deepcopy(get_sample_queue())
