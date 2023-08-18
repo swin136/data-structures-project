@@ -57,7 +57,7 @@ class LinkedList:
             self.__end = node
 
     def __str__(self) -> str:
-        """Вывод данных односвязного списка в строковом представлении"""
+        """Вывод данных односвязного списка `LinkedList` в строковом представлении"""
         node = self.__begin
         if node is None:
             return str(None)
@@ -69,3 +69,30 @@ class LinkedList:
 
         ll_string += ' None'
         return ll_string.strip()
+
+    def to_list(self):
+        """Возвращает список с данными, содержащимися в односвязном списке `LinkedList`"""
+        node = self.__begin
+        if node is None:
+            return
+        ll_list = []
+        while node:
+            ll_list.append(node.data)
+            node = node.next_node
+        return ll_list
+
+    def get_data_by_id(self, get_id: int):
+        """Возвращает первый найденный в `LinkedList` словарь с ключом 'id', значение которого равно переданному в
+        метод значению."""
+        lst = self.to_list()
+        if lst is None:
+            return
+        user_data = None
+        for item in lst:
+            try:
+                if item['id'] == get_id:
+                    user_data = item
+            except (TypeError, KeyError):
+                print('Данные не являются словарем или в словаре нет id')
+
+        return user_data
