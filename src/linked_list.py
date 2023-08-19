@@ -92,6 +92,7 @@ class LinkedList:
             try:
                 if item['id'] == get_id:
                     user_data = item
+                    break
             except (TypeError, KeyError):
                 print('Данные не являются словарем или в словаре нет id')
 
