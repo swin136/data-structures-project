@@ -17,7 +17,8 @@ if __name__ == '__main__':
     assert queue.tail.data == 'data3'
     assert queue.tail.next_node is None
     try:
-        print(queue.tail.next_node.data)  # AttributeError: 'NoneType' object has no attribute 'data'
+        print(queue.tail.next_node.data)
+        # AttributeError: 'NoneType' object has no attribute 'data'
     except AttributeError:
         print('Возникла ошибка доступа к аттрибуту элемента очереди!')
 

@@ -1,8 +1,9 @@
 """Здесь надо написать тесты с использованием unittest для модуля linked_list."""
 import unittest
-from src.linked_list import Node
-from src.linked_list import LinkedList
 from unittest.mock import patch
+
+from src.linked_list import LinkedList
+from src.linked_list import Node
 
 
 class TestNodeStack(unittest.TestCase):
@@ -63,7 +64,8 @@ class TestNodeStack(unittest.TestCase):
 
     @patch('builtins.print')
     def test_get_data_by_id_try_except_no_dict(self, mock_print):
-        """Тестируем работу блока try ... except в методе get_data_by_id класса LinkedList из src/linked_list.py"""
+        """Тестируем работу блока try ... except в методе get_data_by_id класса LinkedList
+        из src/linked_list.py"""
         error_msg = 'Данные не являются словарем или в словаре нет id'
         # Создаем экземпляр класса LinkedList.
         # Добавляем элементы, один из которых не является словарем
@@ -72,14 +74,16 @@ class TestNodeStack(unittest.TestCase):
         ll.insert_beginning('idusername')
         ll.insert_at_end({'id': 3, 'username': 'mosh_s'})
         ll.insert_at_end({'id': 2, 'username': 'mik.roz'})
-        # Вызываем функции ll_1.get_data_by_id, и перехватываем вызов функции print c аргументом error_mgs,
+        # Вызываем функции ll_1.get_data_by_id, и перехватываем вызов функции print
+        # c аргументом error_mgs,
         # который осуществляется в секции except блока try.
         ll.get_data_by_id(2)
         mock_print.assert_called_with(error_msg)
 
     @patch('builtins.print')
     def test_get_data_by_id_try_except_no_id(self, mock_print):
-        """Тестируем работу блока try ... except в методе get_data_by_id класса LinkedList из src/linked_list.py"""
+        """Тестируем работу блока try ... except в методе get_data_by_id класса LinkedList
+        из src/linked_list.py"""
         error_msg = 'Данные не являются словарем или в словаре нет id'
         # Создаем экземпляр класса LinkedList.
         # Добавляем элементы, один из которых является словарем, в котором нет ключа 'id'
@@ -88,8 +92,8 @@ class TestNodeStack(unittest.TestCase):
         ll.insert_at_end({'ids': 1, 'username': 'lazzy508509'})
         ll.insert_at_end({'id': 3, 'username': 'mosh_s'})
         ll.insert_at_end({'id': 2, 'username': 'mik.roz'})
-        # Вызываем функции ll_1.get_data_by_id, и перехватываем вызов функции print c аргументом error_mgs,
-        # который осуществляется в секции except блока try.
+        # Вызываем функции ll_1.get_data_by_id, и перехватываем вызов функции print
+        # c аргументом error_mgs, который осуществляется в секции except блока try.
         ll.get_data_by_id(2)
         mock_print.assert_called_with(error_msg)
 
