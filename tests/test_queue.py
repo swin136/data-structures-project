@@ -1,6 +1,7 @@
 """Здесь надо написать тесты с использованием unittest для модуля queue."""
 import copy
 import unittest
+
 from src.queue import Node
 from src.queue import Queue
 
